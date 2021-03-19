@@ -9,3 +9,5 @@ v: 2.8.2
 # rootUri for maven central artifactId
 depUri: https://search.maven.org/artifact/org.immutables
 
+
+theme: jekyll-theme-modernist
