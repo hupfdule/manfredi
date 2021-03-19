@@ -55,6 +55,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 </code></pre></div>
 <p>In Maven, the dependency can be declared in the &quot;provided&quot; scope, or made &quot;optional&quot;. The artifact is not required at runtime; it is compile-only dependency.</p>
 
+<p>If you are using multiple dependencies like <code>org.immutables:serial</code> you can import the bill of materials (BoM) in your dependency management and go without specifying the version of the dependency individually:</p>
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span></span><span class="nt">&lt;dependencyManagement&gt;</span>
+  <span class="nt">&lt;dependencies&gt;</span>
+    <span class="nt">&lt;dependency&gt;</span>
+      <span class="nt">&lt;groupId&gt;</span>org.immutables<span class="nt">&lt;/groupId&gt;</span>
+      <span class="nt">&lt;artifactId&gt;</span>bom<span class="nt">&lt;/artifactId&gt;</span>
+      <span class="nt">&lt;version&gt;</span>2.8.2<span class="nt">&lt;/version&gt;</span>
+      <span class="nt">&lt;scope&gt;</span>import<span class="nt">&lt;/scope&gt;</span>
+      <span class="nt">&lt;type&gt;</span>pom<span class="nt">&lt;/type&gt;</span>
+    <span class="nt">&lt;/dependency&gt;</span>
+  <span class="nt">&lt;/dependencies&gt;</span>
+<span class="nt">&lt;/dependencyManagement&gt;</span>
+</code></pre></div>
 <p>The <em>Immutables</em> annotation processor runs under any Java build tool that uses <code>javac</code> as compiler backend (assuming that annotation processing is not disabled in build tool configuration).
 The <em>Eclipse JDT compiler</em> (ECJ) also supports this annotation processor. See <a href="/apt.html">Using annotation processor in IDE</a>.</p>
 
@@ -212,6 +225,7 @@ Disabling incremental compilation is also an option:</p>
 <li><a href="/json.html">JSON serialization</a></li>
 <li><a href="/criteria.html">Criteria</a></li>
 <li><a href="/mongo.html">MongoDB repositories</a></li>
+<li><a href="/dynamodb.html">DynamoDB integration</a></li>
 <li><a href="/encoding.html">Encoding: Customizing attributes and builders (experimental)</a></li>
 <li><a href="/apt.html">Using annotation processor in IDE</a></li>
 </ul>
